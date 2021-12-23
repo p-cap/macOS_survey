@@ -1,0 +1,47 @@
+#!/usr/bin/env zsh
+
+cmds=(  'date' 
+	'$user=whoami'
+	'who'
+	'ifconfig'
+	'hostname'
+	'uptime'
+	'sw_vers'
+	'uname -a'	
+	'spctl --status'
+	'bash -version'
+	'w'
+	'finger -m'
+	'last $user'
+	'id'
+	'groups'	
+	'printenv'
+	'ps aux'  
+	'dscl . -ls /Users'
+	'netstat -ru'
+	'netstat -an'
+	'smbutil statshares -a'
+	'security dump-trust-settings -s'
+	'security dump-trust-settings -d'
+	'networksetup -listallnetworkservices'
+	'launchlctl list'
+	'crontab -l'
+	'atq'
+	'kextstat'
+	'sysctl -a'
+	'history'
+	'security list-keychains'
+	'nvram'
+	'du -h'
+	'diskutil list'
+	'codesign -d'
+	'codesign -vv'
+	'zsh --version'
+)
+
+for i in ${cmds[@]}; do
+  echo "##### $i #####"
+  eval $i
+  echo "##############"
+  echo -e "\n"
+done
